@@ -4,15 +4,21 @@ const HIDDEN_SELECTORS = [
   'ytd-menu-renderer button[aria-label="Teilen"]',
   'ytd-masthead ytd-button-renderer:has(button[aria-label="Erstellen"])',
   "#voice-search-button",
-  "yt-related-chip-cloud-renderer",
+  'ytd-notification-topbar-button-renderer',
   "ytd-comments-header-renderer",
   "ytd-mini-guide-renderer",
   "#frosted-glass",
   "ytd-statement-banner-renderer",
+  "ytd-feed-filter-chip-bar-renderer",
+  "#guide-button",
+  "#guide",
 ];
 
 const STYLED_SELECTORS = [
   'button[aria-label="Search"] { background-color: #121212 !important; }',
+  'ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app { margin-left: 0 !important; }',
+  'ytd-masthead { background-color: #0F0F0F !important; }',
+  'ytd-page-manager { padding-left: var(--ytd-rich-grid-gutter-margin, 48px) !important; padding-right: var(--ytd-rich-grid-gutter-margin, 48px) !important; }',
 ];
 
 const CSS =

@@ -10,6 +10,7 @@ const HIDDEN_SELECTORS = [
   "#frosted-glass",
   "ytd-statement-banner-renderer",
   "ytd-feed-filter-chip-bar-renderer",
+  "yt-related-chip-cloud-renderer",
   "#guide-button",
   "#guide",
 ];

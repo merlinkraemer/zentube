@@ -5,251 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZenTube — decluttered YouTube</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #0f0f0f;
-      --white: #ffffff;
-      --red:   #ff0000;
-      --muted: #aaaaaa;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: var(--black);
-      color: var(--white);
-      font-family: system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
+      background: #0f0f0f;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
     }
-
-    /* ── Hero ───────────────────────────────────────────── */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 100px 24px 80px;
-      gap: 24px;
-    }
-
     .logo {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      margin-bottom: 12px;
     }
-
-    .logo svg { width: 52px; height: 52px; }
-
-    .logo-text {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .tagline {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--red);
-      letter-spacing: -0.5px;
-    }
-
-    .subline {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 480px;
-      line-height: 1.6;
-    }
-
+    .logo svg { width: 40px; height: 40px; }
+    h1 { font-size: 2.4rem; font-weight: 800; }
+    .tagline { color: #ff0000; font-size: 1.2rem; font-weight: 700; margin-bottom: 40px; }
+    .screenshots { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+    .screenshots img { width: 100%; border-radius: 8px; }
     .cta {
       display: inline-block;
-      margin-top: 8px;
-      padding: 14px 32px;
-      background: var(--white);
-      color: var(--black);
-      font-size: 0.95rem;
+      padding: 12px 28px;
+      background: #fff;
+      color: #0f0f0f;
       font-weight: 700;
       text-decoration: none;
       border-radius: 4px;
-      letter-spacing: 0.02em;
-      transition: opacity 0.15s;
+      margin-bottom: 64px;
     }
-    .cta:hover { opacity: 0.85; }
-
-    /* ── What it hides ──────────────────────────────────── */
-    .features {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 20px;
-    }
-
-    .items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #1a1a1a;
-      border-radius: 6px;
-      padding: 12px 16px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .item::before {
-      content: "×";
-      color: var(--red);
-      font-size: 1.1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* ── Privacy ────────────────────────────────────────── */
-    .privacy {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 24px 120px;
-    }
-
-    .privacy h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-    }
-
-    .privacy h3 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin: 28px 0 10px;
-    }
-
-    .privacy p, .privacy li {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .privacy ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .privacy li::before {
-      content: "— ";
-      color: var(--white);
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid #222;
-      max-width: 640px;
-      margin: 0 auto 60px;
-    }
-
-    /* ── Footer ─────────────────────────────────────────── */
-    footer {
-      text-align: center;
-      padding: 0 24px 48px;
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    footer a {
-      color: #888;
-      text-decoration: none;
-    }
-    footer a:hover { color: var(--white); }
-
-    @media (max-width: 500px) {
-      .logo-text { font-size: 2.2rem; }
-      .tagline   { font-size: 1.2rem; }
-      .items     { grid-template-columns: 1fr; }
-    }
+    hr { border: none; border-top: 1px solid #222; margin-bottom: 40px; }
+    h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+    p, li { color: #aaa; font-size: 0.9rem; line-height: 1.7; }
+    ul { list-style: none; margin: 8px 0 16px; }
+    li::before { content: "— "; color: #fff; }
+    b { color: #fff; }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="2 6 44 36">
-        <defs>
-          <mask id="m">
-            <rect x="2" y="6" width="44" height="36" fill="white"/>
-            <polygon points="20,17 20,31 32,24" fill="black"/>
-          </mask>
-        </defs>
-        <path fill="white" d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z" mask="url(#m)"/>
-      </svg>
-      <span class="logo-text">ZenTube</span>
-    </div>
-    <p class="tagline">decluttered youtube.</p>
-    <p class="subline">Hides everything YouTube added to pull your attention away from the video. One toggle. No accounts. No tracking.</p>
-    <a class="cta" href="https://chromewebstore.google.com/detail/zentube" target="_blank" rel="noopener">Add to Chrome</a>
-  </section>
+  <div class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="2 6 44 36">
+      <defs><mask id="m"><rect x="2" y="6" width="44" height="36" fill="white"/><polygon points="20,17 20,31 32,24" fill="black"/></mask></defs>
+      <path fill="white" d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z" mask="url(#m)"/>
+    </svg>
+    <h1>ZenTube</h1>
+  </div>
+  <p class="tagline">decluttered youtube.</p>
 
-  <section class="features">
-    <p class="section-label">What disappears</p>
-    <div class="items">
-      <div class="item">Sidebar &amp; guide</div>
-      <div class="item">Notification bell</div>
-      <div class="item">Filter chips bar</div>
-      <div class="item">Related topic chips</div>
-      <div class="item">Premium upsell banners</div>
-      <div class="item">Create button</div>
-      <div class="item">Voice search</div>
-      <div class="item">Comments header</div>
-    </div>
-  </section>
+  <div class="screenshots">
+    <img src="../screenshots/screenshot1.png" alt="ZenTube — watch page cleaned up" />
+    <img src="../screenshots/screenshot2.png" alt="ZenTube — homepage without distractions" />
+  </div>
 
-  <hr class="divider" />
+  <a class="cta" href="https://chromewebstore.google.com/detail/zentube" target="_blank" rel="noopener">Add to Chrome</a>
 
-  <section class="privacy" id="privacy">
-    <h2>Privacy Policy</h2>
-    <p>Last updated: April 16, 2026</p>
+  <hr id="privacy" />
 
-    <h3>Data collection</h3>
-    <p>ZenTube collects no data. It does not:</p>
-    <ul>
-      <li>Track your browsing activity</li>
-      <li>Collect personal information</li>
-      <li>Send any data to external servers</li>
-      <li>Use analytics or telemetry</li>
-    </ul>
+  <h2>Privacy Policy</h2>
+  <p>Last updated: April 16, 2026</p>
+  <p>ZenTube collects no data whatsoever. No tracking, no analytics, no external servers.</p>
 
-    <h3>Local storage</h3>
-    <p>ZenTube stores a single value — whether the extension is enabled or disabled — in Chrome's local storage. This value never leaves your device.</p>
+  <p style="margin-top:16px"><b>Local storage</b></p>
+  <p>One value is stored locally: whether the extension is on or off. It never leaves your device.</p>
 
-    <h3>Permissions</h3>
-    <p>ZenTube requests one permission:</p>
-    <ul>
-      <li><strong style="color:#fff">storage</strong> — to remember your on/off preference across browser sessions</li>
-    </ul>
-    <p style="margin-top:10px">No host permissions, no network access, no access to page content beyond injecting a CSS stylesheet.</p>
+  <p style="margin-top:16px"><b>Permissions</b></p>
+  <ul>
+    <li><b>storage</b> — saves your on/off preference between sessions. Nothing else.</li>
+  </ul>
 
-    <h3>Contact</h3>
-    <p>Questions? Open an issue on <a href="https://github.com/merlinkraemer/zentube" style="color:#fff">GitHub</a>.</p>
-  </section>
-
-  <footer>
-    <p><a href="https://github.com/merlinkraemer/zentube">GitHub</a> · <a href="#privacy">Privacy Policy</a></p>
-  </footer>
+  <p>Questions? <a href="https://github.com/merlinkraemer/zentube" style="color:#fff">GitHub</a>.</p>
 
 </body>
 </html>
